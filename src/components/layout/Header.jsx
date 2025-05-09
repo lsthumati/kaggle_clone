@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,50 +9,60 @@ export default function Header() {
     <header className="bg-white border-b border-gray-200">
       <div className="max-w-[1400px] mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-6">
             <Link to="/" className="flex-shrink-0">
               <img
                 className="h-8"
-                src="https://www.kaggle.com/static/images/site-logo.svg"
+                src="https://www.kaggle.com/static/images/site-logo.png"
                 alt="Kaggle"
               />
             </Link>
-            <nav className="hidden md:ml-6 md:flex md:space-x-4">
-              <Link to="/competitions" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+            <nav className="hidden md:flex md:space-x-1">
+              <Link to="/competitions" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
                 Competitions
               </Link>
-              <Link to="/datasets" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+              <Link to="/datasets" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
                 Datasets
               </Link>
-              <Link to="/models" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+              <Link to="/models" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
                 Models
               </Link>
-              <Link to="/discuss" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
-                Discuss
+              <Link to="/code" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                Code
               </Link>
-              <Link to="/learn" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
-                Learn
+              <Link to="/discussions" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                Discussions
               </Link>
+              <Link to="/courses" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                Courses
+              </Link>
+              <button className="text-gray-700 hover:text-gray-900 px-3 py-2">
+                <EllipsisHorizontalIcon className="h-5 w-5" />
+              </button>
             </nav>
           </div>
-          <div className="flex items-center">
-            <div className="hidden md:block">
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:block w-64">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </div>
                 <input
                   type="text"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="Search Kaggle"
+                  placeholder="Search"
+                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
-            <div className="ml-4 flex items-center">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
-                Sign In
-              </button>
-            </div>
+            <Link to="/signin" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+              Sign In
+            </Link>
+            <Link
+              to="/register"
+              className="bg-[#20BEFF] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#1A95CC] transition-colors"
+            >
+              Register
+            </Link>
           </div>
         </div>
       </div>

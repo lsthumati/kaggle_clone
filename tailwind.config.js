@@ -8,9 +8,8 @@ export default {
     extend: {
       colors: {
         'kaggle-blue': {
-          600: '#20BEFF',
-          700: '#1A95CC',
-          800: '#157AAB'
+          DEFAULT: '#20BEFF',
+          dark: '#1A95CC',
         }
       },
       maxWidth: {
